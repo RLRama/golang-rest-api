@@ -14,6 +14,9 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
 	r := gin.Default()
 	r.GET("/hello", func(c *gin.Context) {
